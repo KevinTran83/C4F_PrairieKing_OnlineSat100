@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2qqdd5caq025"]
+
+[ext_resource type="Script" path="res://C4F_PrairieKing/Scripts/Movement.gd" id="1_akq6x"]
+[ext_resource type="Script" path="res://C4F_PrairieKing/Scripts/Shoot.gd" id="2_5nj2q"]
+[ext_resource type="PackedScene" uid="uid://drkqeahrnb6at" path="res://C4F_PrairieKing/Nodes/Bullet.tscn" id="2_x1jli"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6w1ee"]
+size = Vector2(40, 40)
+
+[node name="Main" type="Node"]
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="Player" type="CharacterBody2D" parent="Level"]
+
+[node name="ColorRect" type="ColorRect" parent="Level/Player"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Player"]
+shape = SubResource("RectangleShape2D_6w1ee")
+
+[node name="Movement" type="Node" parent="Level/Player"]
+script = ExtResource("1_akq6x")
+
+[node name="Shoot" type="Node" parent="Level/Player"]
+script = ExtResource("2_5nj2q")
+
+[node name="Bullet" parent="Level" instance=ExtResource("2_x1jli")]
+position = Vector2(187, 423)

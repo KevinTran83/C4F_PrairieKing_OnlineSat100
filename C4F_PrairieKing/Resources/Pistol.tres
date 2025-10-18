@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Firearm" load_steps=3 format=3 uid="uid://c25tqd304ul3q"]
+
+[ext_resource type="Script" path="res://C4F_PrairieKing/Scripts/Firearm.gd" id="1_022os"]
+[ext_resource type="PackedScene" uid="uid://drkqeahrnb6at" path="res://C4F_PrairieKing/Nodes/Bullet.tscn" id="1_dfy3g"]
+
+[resource]
+script = ExtResource("1_022os")
+projectile = ExtResource("1_dfy3g")
+rpm = 10
