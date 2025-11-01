@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://cktydsr6d4dxq"]
+
+[ext_resource type="Script" path="res://C4F_PrairieKing/Scripts/HP.gd" id="1_21j7j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qvk6k"]
+size = Vector2(40, 40)
+
+[node name="Enemy" type="RigidBody2D"]
+collision_layer = 4
+contact_monitor = true
+max_contacts_reported = 10
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qvk6k")
+
+[node name="HP" type="Node" parent="."]
+script = ExtResource("1_21j7j")
+
+[connection signal="body_entered" from="." to="HP" method="Deplete"]

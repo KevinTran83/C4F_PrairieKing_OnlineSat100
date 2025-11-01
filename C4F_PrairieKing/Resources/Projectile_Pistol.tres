@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Damage" load_steps=2 format=3 uid="uid://dvpjvs6a6330y"]
+
+[ext_resource type="Script" path="res://C4F_PrairieKing/Scripts/Damage.gd" id="1_qhyo0"]
+
+[resource]
+script = ExtResource("1_qhyo0")
+damage = 1.0

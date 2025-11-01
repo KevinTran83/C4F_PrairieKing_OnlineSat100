@@ -6,4 +6,4 @@
 [resource]
 script = ExtResource("1_022os")
 projectile = ExtResource("1_dfy3g")
-rpm = 10
+rpm = 100

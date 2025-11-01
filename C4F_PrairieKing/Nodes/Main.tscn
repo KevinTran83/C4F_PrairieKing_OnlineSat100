@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c2qqdd5caq025"]
+[gd_scene load_steps=7 format=3 uid="uid://c2qqdd5caq025"]
 
 [ext_resource type="Script" path="res://C4F_PrairieKing/Scripts/Movement.gd" id="1_akq6x"]
 [ext_resource type="Script" path="res://C4F_PrairieKing/Scripts/Shoot.gd" id="2_5nj2q"]
 [ext_resource type="Resource" uid="uid://c25tqd304ul3q" path="res://C4F_PrairieKing/Resources/Pistol.tres" id="3_d0eno"]
 [ext_resource type="Script" path="res://C4F_PrairieKing/Scripts/PlayerShootController.gd" id="4_3jxj6"]
+[ext_resource type="PackedScene" uid="uid://cktydsr6d4dxq" path="res://C4F_PrairieKing/Nodes/Enemy.tscn" id="5_4lcwu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6w1ee"]
 size = Vector2(40, 40)
@@ -13,6 +14,7 @@ size = Vector2(40, 40)
 [node name="Level" type="Node2D" parent="."]
 
 [node name="Player" type="CharacterBody2D" parent="Level"]
+position = Vector2(228, 178)
 
 [node name="ColorRect" type="ColorRect" parent="Level/Player"]
 offset_left = -20.0
@@ -36,3 +38,7 @@ muzzleOffset = 100.0
 
 [node name="PlayerShootController" type="Node" parent="Level/Player"]
 script = ExtResource("4_3jxj6")
+
+[node name="Enemy" parent="Level" instance=ExtResource("5_4lcwu")]
+position = Vector2(694, 239)
+gravity_scale = 0.0

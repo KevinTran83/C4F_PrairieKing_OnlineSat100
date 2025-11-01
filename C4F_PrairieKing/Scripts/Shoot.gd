@@ -15,6 +15,7 @@ func _ready() -> void:
 func Equip(newWeapon : Firearm) -> void:
     if not newWeapon : return
     timer.set_wait_time(newWeapon.SpawnTime())
+    equipped = newWeapon
 
 func SpawnProjectile() -> void:
     if not equipped : return
@@ -28,7 +29,8 @@ func SpawnProjectile() -> void:
     projNode.Fire(hand.get_global_rotation())
 
 func PullTrigger(angle : float) -> void:
-    hand.set_global_rotation(angle);
+    hand.set_global_rotation(angle)
+    SpawnProjectile()
     timer.start()
     
 func HoldFire() -> void : timer.stop();
