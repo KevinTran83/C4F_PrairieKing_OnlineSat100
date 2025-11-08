@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="Target" load_steps=2 format=3 uid="uid://cji36far0o3yw"]
+
+[ext_resource type="Script" path="res://C4F_PrairieKing/Scripts/Target.gd" id="1_hsimn"]
+
+[resource]
+script = ExtResource("1_hsimn")

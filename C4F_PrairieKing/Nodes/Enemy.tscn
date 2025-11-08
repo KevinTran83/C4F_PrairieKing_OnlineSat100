@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cktydsr6d4dxq"]
+[gd_scene load_steps=5 format=3 uid="uid://cktydsr6d4dxq"]
 
 [ext_resource type="Script" path="res://C4F_PrairieKing/Scripts/HP.gd" id="1_21j7j"]
+[ext_resource type="Script" path="res://C4F_PrairieKing/Scripts/Chase.gd" id="2_61kcu"]
+[ext_resource type="Resource" uid="uid://cji36far0o3yw" path="res://C4F_PrairieKing/Resources/TargetPlayer.tres" id="3_lbn22"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qvk6k"]
 size = Vector2(40, 40)
@@ -22,4 +24,10 @@ shape = SubResource("RectangleShape2D_qvk6k")
 [node name="HP" type="Node" parent="."]
 script = ExtResource("1_21j7j")
 
+[node name="Chase" type="Node" parent="."]
+script = ExtResource("2_61kcu")
+target = ExtResource("3_lbn22")
+
 [connection signal="body_entered" from="." to="HP" method="Deplete"]
+[connection signal="onDeath" from="HP" to="." method="queue_free"]
+[connection signal="onDeath" from="HP" to="Chase" method="Halt"]
