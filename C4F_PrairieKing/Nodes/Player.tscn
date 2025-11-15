@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://cln1b5j4wmyvh"]
+
+[ext_resource type="Script" path="res://C4F_PrairieKing/Scripts/Movement.gd" id="1_hy4e5"]
+[ext_resource type="Script" path="res://C4F_PrairieKing/Scripts/Shoot.gd" id="2_k62oc"]
+[ext_resource type="Resource" uid="uid://c25tqd304ul3q" path="res://C4F_PrairieKing/Resources/Pistol.tres" id="3_xrl8g"]
+[ext_resource type="Script" path="res://C4F_PrairieKing/Scripts/PlayerShootController.gd" id="4_fef8w"]
+[ext_resource type="Script" path="res://C4F_PrairieKing/Scripts/SetTarget.gd" id="5_34udv"]
+[ext_resource type="Resource" uid="uid://cji36far0o3yw" path="res://C4F_PrairieKing/Resources/TargetPlayer.tres" id="6_vn863"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6w1ee"]
+size = Vector2(40, 40)
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(228, 178)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6w1ee")
+
+[node name="Hand" type="Node2D" parent="."]
+
+[node name="Movement" type="Node" parent="."]
+script = ExtResource("1_hy4e5")
+
+[node name="Shoot" type="Node" parent="." node_paths=PackedStringArray("hand")]
+script = ExtResource("2_k62oc")
+equipped = ExtResource("3_xrl8g")
+hand = NodePath("../Hand")
+muzzleOffset = 100.0
+
+[node name="PlayerShootController" type="Node" parent="."]
+script = ExtResource("4_fef8w")
+
+[node name="SetTarget" type="Node" parent="."]
+script = ExtResource("5_34udv")
+target = ExtResource("6_vn863")

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=2 format=3 uid="uid://d2s7yw70aohoh"]
+
+[ext_resource type="Script" path="res://C4F_PrairieKing/Scripts/Enemy.gd" id="1_coi85"]
+
+[resource]
+script = ExtResource("1_coi85")
+speed = 50.0
+hp = 5.0
+testColor = Color(0, 0.356863, 0, 1)
