@@ -4,3 +4,4 @@ class_name Enemy extends Resource
 @export var hp        : float
 @export var testColor : Color
 @export var sprite    : Image
+@export var drop      : PackedScene

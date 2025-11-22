@@ -1,4 +1,4 @@
-extends Node
+class_name Chase extends Node
 
 @onready var rb : RigidBody2D = get_parent()
 

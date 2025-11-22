@@ -1,4 +1,4 @@
-extends Node
+class_name HP extends Node
 
 @export var maxHP : float = 5
 

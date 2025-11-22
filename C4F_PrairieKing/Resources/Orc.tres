@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://umwl75co3n5y"]
+
+[ext_resource type="Script" path="res://C4F_PrairieKing/Scripts/Enemy.gd" id="1_hgnug"]
+[ext_resource type="PackedScene" uid="uid://d0kglpya86rp6" path="res://C4F_PrairieKing/Nodes/MachineGun.tscn" id="1_qc46l"]
+
+[resource]
+script = ExtResource("1_hgnug")
+speed = 100.0
+hp = 10.0
+testColor = Color(0.110179, 0.216009, 0.173938, 1)
+drop = ExtResource("1_qc46l")
