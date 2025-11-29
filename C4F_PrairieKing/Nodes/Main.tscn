@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c2qqdd5caq025"]
+[gd_scene load_steps=10 format=3 uid="uid://c2qqdd5caq025"]
 
 [ext_resource type="PackedScene" uid="uid://cln1b5j4wmyvh" path="res://C4F_PrairieKing/Nodes/Player.tscn" id="1_5ua17"]
 [ext_resource type="Script" path="res://C4F_PrairieKing/Scripts/EnemySpawner.gd" id="2_fcrqb"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cktydsr6d4dxq" path="res://C4F_PrairieKing/Nodes/Enemy.tscn" id="5_4lcwu"]
 [ext_resource type="Resource" uid="uid://d2s7yw70aohoh" path="res://C4F_PrairieKing/Resources/Zombie.tres" id="5_pwq77"]
 [ext_resource type="Resource" uid="uid://umwl75co3n5y" path="res://C4F_PrairieKing/Resources/Orc.tres" id="6_6ewm8"]
+[ext_resource type="Resource" uid="uid://egjq17h8uf3r" path="res://C4F_PrairieKing/Resources/EnemyRegistry.tres" id="7_3sgc3"]
+[ext_resource type="PackedScene" uid="uid://dqdp1hr234sy2" path="res://C4F_PrairieKing/Nodes/Bomb.tscn" id="7_ojbs3"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_c11xd"]
 vertices = PackedVector2Array(-19.2031, -11.2109, 276.242, -50.6094, 288.219, 493, -35.7422, 662.969, 1160.02, 660.023, 572.828, 493, 1161.97, -42.0781, 581.828, -46.9063)
@@ -26,6 +28,7 @@ script = ExtResource("2_fcrqb")
 defaultEnemy = ExtResource("5_4lcwu")
 spawnPoint = NodePath("SpawnPoint")
 enemies = Array[ExtResource("4_ukpov")]([ExtResource("5_pwq77"), ExtResource("6_6ewm8")])
+registry = ExtResource("7_3sgc3")
 
 [node name="SpawnPoint" type="Node2D" parent="Level/Spawner"]
 position = Vector2(1120, 27)
@@ -35,6 +38,10 @@ script = ExtResource("2_fcrqb")
 defaultEnemy = ExtResource("5_4lcwu")
 spawnPoint = NodePath("SpawnPoint")
 enemies = Array[ExtResource("4_ukpov")]([ExtResource("5_pwq77"), ExtResource("6_6ewm8")])
+registry = ExtResource("7_3sgc3")
 
 [node name="SpawnPoint" type="Node2D" parent="Level/Spawner2"]
 position = Vector2(462, 609)
+
+[node name="Bomb" parent="Level" instance=ExtResource("7_ojbs3")]
+position = Vector2(163, 426)

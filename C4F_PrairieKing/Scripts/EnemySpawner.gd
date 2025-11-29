@@ -5,6 +5,7 @@ extends Node
 @export var spawnTimeMax : float = 10 # OPTIONAL
 @export var spawnPoint   : Node2D
 @export var enemies      : Array[Enemy]
+@export var registry     : EnemyReg
 
 var timer : Timer
 
@@ -23,3 +24,6 @@ func Spawn() -> void:
     newEnemy.Apply(enemies.pick_random())
     newEnemy.set_global_position(spawnPoint.get_global_position())
     timer.start(randf_range(spawnTime, spawnTimeMax)) # OPTIONAL
+    
+    if not registry : return
+    registry.Register(newEnemy)

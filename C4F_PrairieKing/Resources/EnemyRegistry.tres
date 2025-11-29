@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="EnemyReg" load_steps=2 format=3 uid="uid://egjq17h8uf3r"]
+
+[ext_resource type="Script" path="res://C4F_PrairieKing/Scripts/EnemyReg.gd" id="1_a6cgi"]
+
+[resource]
+script = ExtResource("1_a6cgi")
