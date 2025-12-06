@@ -18,9 +18,14 @@ func Deplete(other : Node) -> void:
     var bullet = other.get_node("Projectile") as Projectile
     if not bullet : return
     
-    remainingHP -= bullet.GetDamage()
+    ChangeHP(bullet.GetDamage())
+
+func ChangeHP(amount : float) -> void:
+    remainingHP -= amount
     if remainingHP < 0 : remainingHP = 0
     
     if remainingHP == 0 and not hasDiedOnce:
         onDeath.emit()
         hasDiedOnce = true
+
+func Kill() -> void: ChangeHP(remainingHP)

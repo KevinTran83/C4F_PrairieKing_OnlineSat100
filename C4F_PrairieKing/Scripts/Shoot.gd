@@ -6,6 +6,9 @@ class_name Shoot extends Node
 
 var timer : Timer
 
+signal onEquip()
+
+
 func _ready() -> void:
     timer = Timer.new()
     add_child(timer)
@@ -16,6 +19,7 @@ func Equip(newWeapon : Firearm) -> void:
     if not newWeapon : return
     timer.set_wait_time(newWeapon.SpawnTime())
     equipped = newWeapon
+    onEquip.emit()
 
 func SpawnProjectile() -> void:
     if not equipped : return

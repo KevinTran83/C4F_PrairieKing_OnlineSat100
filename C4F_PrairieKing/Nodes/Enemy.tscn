@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cktydsr6d4dxq"]
+[gd_scene load_steps=9 format=3 uid="uid://cktydsr6d4dxq"]
 
 [ext_resource type="Script" path="res://C4F_PrairieKing/Scripts/HP.gd" id="1_21j7j"]
 [ext_resource type="Script" path="res://C4F_PrairieKing/Scripts/EnemyApplier.gd" id="1_elwut"]
@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://cji36far0o3yw" path="res://C4F_PrairieKing/Resources/TargetPlayer.tres" id="3_lbn22"]
 [ext_resource type="Script" path="res://C4F_PrairieKing/Scripts/Drop.gd" id="5_gb2y7"]
 [ext_resource type="PackedScene" uid="uid://d0kglpya86rp6" path="res://C4F_PrairieKing/Nodes/MachineGun.tscn" id="6_cky21"]
+[ext_resource type="AudioStream" uid="uid://odmg24tbtgkl" path="res://C4F_PrairieKing/Sounds/EnemyDown.wav" id="7_rwryh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qvk6k"]
 size = Vector2(40, 40)
@@ -36,7 +37,15 @@ target = ExtResource("3_lbn22")
 script = ExtResource("5_gb2y7")
 item = ExtResource("6_cky21")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_rwryh")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="." to="HP" method="Deplete"]
-[connection signal="onDeath" from="HP" to="." method="queue_free"]
 [connection signal="onDeath" from="HP" to="Chase" method="Halt"]
 [connection signal="onDeath" from="HP" to="Drop" method="DropItem"]
+[connection signal="onDeath" from="HP" to="AudioStreamPlayer" method="play"]
+[connection signal="onDeath" from="HP" to="Timer" method="start"]
+[connection signal="timeout" from="Timer" to="." method="queue_free"]
