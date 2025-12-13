@@ -5,6 +5,8 @@ extends Node
 @onready var character : CharacterBody2D = get_parent()
 @onready var canMove : bool = true
 
+@onready var anim : AnimatedSprite2D = get_node("../AnimatedSprite2D")
+
 func _process(delta: float) -> void:
     if not canMove : return
     var movementVector = Vector2.ZERO
@@ -12,6 +14,9 @@ func _process(delta: float) -> void:
     movementVector.x -= 1 if Input.is_action_pressed("MoveLeft" ) else 0
     movementVector.y -= 1 if Input.is_action_pressed("MoveUp"   ) else 0
     movementVector.y += 1 if Input.is_action_pressed("MoveDown" ) else 0
+    
+    if (movementVector * speed).length() < 0.01 : anim.play("Idle")
+    else                                        : anim.play("Move")
     
     character.set_velocity(movementVector * speed)
     character.move_and_slide()

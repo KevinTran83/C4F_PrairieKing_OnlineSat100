@@ -1,0 +1,37 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://oahiwrlhk53f"]
+
+[ext_resource type="Texture2D" uid="uid://dh2khwhbv558f" path="res://C4F_PrairieKing/Textures/cowboy.png" id="1_1jqxr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b42u6"]
+atlas = ExtResource("1_1jqxr")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13tbs"]
+atlas = ExtResource("1_1jqxr")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_305pa"]
+atlas = ExtResource("1_1jqxr")
+region = Rect2(100, 0, 50, 50)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b42u6")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13tbs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_305pa")
+}],
+"loop": true,
+"name": &"Move",
+"speed": 5.0
+}]

@@ -18,6 +18,7 @@ max_contacts_reported = 10
 script = ExtResource("1_elwut")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_left = -20.0
 offset_top = -20.0
 offset_right = 20.0
@@ -43,9 +44,12 @@ stream = ExtResource("7_rwryh")
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
 [connection signal="body_entered" from="." to="HP" method="Deplete"]
 [connection signal="onDeath" from="HP" to="Chase" method="Halt"]
 [connection signal="onDeath" from="HP" to="Drop" method="DropItem"]
 [connection signal="onDeath" from="HP" to="AudioStreamPlayer" method="play"]
 [connection signal="onDeath" from="HP" to="Timer" method="start"]
+[connection signal="onDeath" from="HP" to="AnimatedSprite2D" method="stop"]
 [connection signal="timeout" from="Timer" to="." method="queue_free"]

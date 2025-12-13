@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cln1b5j4wmyvh"]
+[gd_scene load_steps=11 format=3 uid="uid://cln1b5j4wmyvh"]
 
 [ext_resource type="Script" path="res://C4F_PrairieKing/Scripts/Movement.gd" id="1_hy4e5"]
 [ext_resource type="Script" path="res://C4F_PrairieKing/Scripts/Shoot.gd" id="2_k62oc"]
@@ -8,19 +8,13 @@
 [ext_resource type="Resource" uid="uid://cji36far0o3yw" path="res://C4F_PrairieKing/Resources/TargetPlayer.tres" id="6_vn863"]
 [ext_resource type="AudioStream" uid="uid://ddfx5ivyif3ty" path="res://C4F_PrairieKing/Sounds/PowerUp.wav" id="7_0dxc3"]
 [ext_resource type="Script" path="res://C4F_PrairieKing/Scripts/HP.gd" id="8_cg0x5"]
+[ext_resource type="SpriteFrames" uid="uid://oahiwrlhk53f" path="res://C4F_PrairieKing/Sprites/Cowboy.tres" id="9_qy2qp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6w1ee"]
 size = Vector2(40, 40)
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(228, 178)
-
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_6w1ee")
@@ -48,5 +42,9 @@ stream = ExtResource("7_0dxc3")
 
 [node name="HP" type="Node" parent="."]
 script = ExtResource("8_cg0x5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("9_qy2qp")
+animation = &"Idle"
 
 [connection signal="onEquip" from="Shoot" to="AudioStreamPlayer" method="play"]
